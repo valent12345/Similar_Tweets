@@ -9,21 +9,10 @@
 
 			body {
 			  	font-family: Helvetica, Arial, sans-serif;
-			  	background-color: rbg(255,255,128);
-				background-image:  url("https://zupimages.net/up/20/50/if8y.jpg");
+			  	background-color: #ED25;
 				margin: 0;
 				padding: 0;
 			}
-
-			#title { 
-				font-size: 4.5rem;letter-spacing: -.1rem;
-			 	position: absolute;
-			 	width: 600px;
-			 	height: 100px;
-			  	top: 50%;
-			  	left: 50%;
-			  	transform: translate(-50%, -50%);
-			  }
 
 			#container{
 				position: relative;
@@ -34,18 +23,18 @@
 			#form{
 				position: relative;
 			 	width: 500px;
-			 	height: 500px;
+			 	height: 350px;
 			 	box-shadow: 1px 1px 12px #555;
-				background: white;
+				background: #FF76;
 				margin: auto;
-				top: 50px;
+				top: 30px;
 			}
 
 			#data{
 				width: 400px;
 				height: 100%;
 				position: absolute;
-				height: 100px;
+				height: 0px;
 			  	top: 30%;
 			  	left: 50%;
 			  	transform: translate(-50%, -50%);
@@ -60,12 +49,12 @@
 			}
 
 			button{
-				background: grey;
+				background: pink;
 				width: 400px;
 				height: 40px;
 				border: 1px solid black;
 				position: relative;
-				top: 25px;
+				top: 50px;
 			}
 
 			button:hover{
@@ -74,23 +63,21 @@
 				cursor: pointer;
 			}
 
-			#result{
-				text-align: center;
-				position: relative;
-    			top: 380px;
-			}
 		</style>
 	</head>
 
 	<body>
 
+        <center>
+        <header><img src="https://zupimages.net/up/20/51/c5cq.jpg" width="500" height="350"></header>
+        </center>
 		<div id="container">
 			<div id="form">
 				 <div id="data">
 				 	<form method="post" action="{{ url_for('result') }}">
                             <textarea type="text" name="Answer" class="form-control" rows=1  cols=48></textarea>
     						<center>
-                            <button type="submit" class="btn btn-primary" onclick="loading();">Find top 20 similar tweets!</button>
+                            <button type="submit" class="btn btn-primary" style="background-color:pink; border-color:magenta" onclick="loading();">Find top 20 similar tweets!</button>
     						</center>
 					</form>
 				 </div>
