@@ -12,7 +12,7 @@ class TestApp(unittest.TestCase):
     def test_result(self):
         Answer = "*The american people are tired of women!*/"
         res = app.pre_processing_text(Answer)
-        self.assertEqual(res, ['people', 'women'])
+        self.assertEqual(res, ['american', 'people', 'tired', 'women'])
     
     def test_response(self):
 
@@ -23,4 +23,4 @@ class TestApp(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         
 if __name__ == '__main__':
-	unittest.main()	
+    unittest.main()
