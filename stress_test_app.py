@@ -21,7 +21,7 @@ class FlaskTests(unittest.TestCase):
         for i in range(n):
             urls.append('http://localhost:5000')
 
-        responses = (grequests.get(u) for u in urls)
+        responses = [grequests.get(u) for u in urls]
 
         start = time.time()
         simultaneous_responses = grequests.map(rs)
