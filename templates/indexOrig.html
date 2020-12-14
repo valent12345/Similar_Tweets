@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style type="text/css">
+			html {
+			  	margin: 0;
+			  	padding: 0;
+			}
+
+			body {
+			  	font-family: Helvetica, Arial, sans-serif;
+			  	background-color: rbg(255,255,128);
+				background-image:  url("https://zupimages.net/up/20/50/if8y.jpg");
+				margin: 0;
+				padding: 0;
+			}
+
+			#title { 
+				font-size: 4.5rem;letter-spacing: -.1rem;
+			 	position: absolute;
+			 	width: 600px;
+			 	height: 100px;
+			  	top: 50%;
+			  	left: 50%;
+			  	transform: translate(-50%, -50%);
+			  }
+
+			#container{
+				position: relative;
+				width: 100%;
+				height: 600px;
+			}
+
+			#form{
+				position: relative;
+			 	width: 500px;
+			 	height: 500px;
+			 	box-shadow: 1px 1px 12px #555;
+				background: white;
+				margin: auto;
+				top: 50px;
+			}
+
+			#data{
+				width: 400px;
+				height: 100%;
+				position: absolute;
+				height: 100px;
+			  	top: 30%;
+			  	left: 50%;
+			  	transform: translate(-50%, -50%);
+
+			}
+
+			.button{
+				width: 450px;
+				height: 30px;
+				position: relative;
+				text-align: center;
+			}
+
+			button{
+				background: grey;
+				width: 400px;
+				height: 40px;
+				border: 1px solid black;
+				position: relative;
+				top: 25px;
+			}
+
+			button:hover{
+				background-color: #eb4d4b;
+				transition: background-color .7s;
+				cursor: pointer;
+			}
+
+			#result{
+				text-align: center;
+				position: relative;
+    			top: 380px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="container">
+			<div id="form">
+				 <div id="data">
+				 	<form method="post">
+    						<center>
+    						<h2>Find top 20 most similar tweets!</h2>
+    						<input type = "text" name= "uid" /> <br>
+    						<input type= "hidden" name= "form_type" value= "answer"/>
+    						<input type = "submit"> <br>
+                            <textarea type="text" name="Answer" class="form-control"></textarea>
+    						</center>
+					</form>
+				 </div>
+				 <div id="result">
+				 <tbody>
+                {% for text, score in results %}
+                      <tr>
+                        <td>{{text}}</td>
+                        <td>{{score}}</td>
+                      </tr>
+                {% endfor %}
+                  </tbody>
+    			 </div>
+			</div>
+		</div>
+
+	</body>
+</html>
