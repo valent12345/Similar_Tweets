@@ -24,7 +24,7 @@ class FlaskTests(unittest.TestCase):
         responses = [grequests.get(u) for u in urls]
 
         start = time.time()
-        simultaneous_responses = grequests.map(rs)
+        simultaneous_responses = grequests.map(responses)
         end = time.time()
         t = end - start
 
