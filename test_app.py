@@ -1,46 +1,26 @@
 import unittest
-import os
 import requests
+import app
 
-class FlaskTests(unittest.TestCase):
-	
-	def setUp(self):
-		os.environ['NO_PROXY'] = '0.0.0.0'
-		pass
 
-	def tearDown(self):
-		pass
+class TestApp(unittest.TestCase):
 
-	def test_a_index(self):
-		response = requests.get('http://localhost:5000')
-		self.assertEqual(response.status_code, 200)
-		
-	def test_b_sentiment_classify_negative(self):	
-		params = {
-			'sentence': 'I hate you !',
-			'form_type': "answer"
-		}
-		response = requests.post('http://localhost:5000', data=params)
-		self.assertEqual(response.status_code, 200)
-		self.assertEqual(response.content, b'This sentence has a negative sentiment')
+    def test_a_base(self):
+        response = requests.get('http://localhost:5000')
+        self.assertEqual(response.status_code, 200)
 
-	def test_c_sentiment_classify_positive(self):	
-		params = {
-			'sentence': 'I love you',
-			'form_type': "answer"
-		}
-		response = requests.post('http://localhost:5000', data=params)
-		self.assertEqual(response.status_code, 200)
-		self.assertEqual(response.content, b'This sentence has a positive sentiment')
-		
-	def test_d_sentiment_classify_neutral(self):	
-		params = {
-			'sentence': 'He seems ok !',
-			'form_type': "answer"
-		}
-		response = requests.post('http://localhost:5000', data=params)
-		self.assertEqual(response.status_code, 200)
-		self.assertEqual(response.content, b'This sentence has a neutral sentiment')
+    def test_result(self):
+        Answer = "*The american people are tired of women!*/"
+        res = app.pre_processing_text(Answer)
+        self.assertEqual(res, ['people', 'women'])
+    
+    def test_response(self):
 
+        params = {
+            'Answer': 'China? CHINA! China'
+        }
+        response = requests.post('http://localhost:5000/result', data=params)
+        self.assertEqual(response.status_code, 200)
+        
 if __name__ == '__main__':
-	unittest.main()
+	unittest.main()	
