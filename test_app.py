@@ -21,6 +21,7 @@ class TestApp(unittest.TestCase):
         }
         response = requests.post('http://localhost:5000/result', data=params)
         self.assertEqual(response.status_code, 200)
-        
+      
+  
 if __name__ == '__main__':
     unittest.main()
