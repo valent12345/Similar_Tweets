@@ -4,7 +4,7 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Start testing App'
-        sh 'python.exe test_app.py'
+        bar 'python test_app.py'
       }
     }
 
