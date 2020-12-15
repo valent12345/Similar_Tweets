@@ -12,11 +12,9 @@ pipeline {
     }
 
     stage('Build Flask app') {
+      agent any
       steps {
-        script {
-          groovyfile.build_app()
-        }
-
+        sh 'groovyfile.build_app()'
       }
     }
 
