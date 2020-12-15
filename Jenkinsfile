@@ -37,11 +37,3 @@ pipeline {
   }
 }
 
-    stage('End') {
-      steps {
-        echo 'Finish'
-      }
-    }
-
-  }
-}
