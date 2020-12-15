@@ -13,7 +13,6 @@ pipeline {
 
     stage('Build Flask app') {
       steps {
-        sh 'docker build -t myflaskapp .'
         script {
           groovyfile.build_app()
         }
