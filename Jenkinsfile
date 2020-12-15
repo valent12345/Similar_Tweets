@@ -22,7 +22,7 @@ pipeline {
           }
 	    stage('push to develop') {
     	  steps {
-            sh 'git commit -m 'merged to develop'
+            sh 'git commit -m 'merged to develop''
             sh 'git push origin develop'
           }
         }
