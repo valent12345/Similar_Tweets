@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Go to feature Branch') {
       steps {
-        sh 'git checkout feature'
+        sh 'echo \'start testing\''
       }
     }
 
