@@ -4,7 +4,7 @@ pipeline {
     stage('Test') {
       steps {
         echo 'Start testing App'
-        bar 'python test_app.py'
+        bat 'python test_app.py'
       }
     }
 
