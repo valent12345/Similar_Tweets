@@ -20,7 +20,8 @@ pipeline {
             sh 'git checkout release'
             sh 'python stress_test_app.py'
           }
-	    stage('push to develop') {
+	}
+	stage('push to develop') {
     	  steps {
             sh 'git commit -m 'merged to develop''
             sh 'git push origin develop'
