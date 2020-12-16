@@ -17,7 +17,7 @@ pipeline{
       }
     }*/
 	  
-	  stage ('Build Scripe'){
+	  stage ('Build requirements'){
 	  	steps{
 			script{
 				 def filename = 'jenkins.' + env.BRANCH_NAME + '.groovy'
@@ -26,7 +26,7 @@ pipeline{
 		}
 	  }
     
-    stage('Build Flask app'){
+    stage('Build app'){
       steps{
         script{
           groovyfile.build_app()
