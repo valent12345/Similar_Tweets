@@ -1,28 +1,20 @@
-pipeline{
-  agent any
+pipeline {
+  agent { docker { image 'python:3.7.2' } }
   stages {
-    stage('Build Flask app'){
-      steps{
-        sh 'docker build -t myflaskapp .'
+    stage('build') {
+      steps {
+        sh 'pip install -r requirements.txt'
       }
     }
-     stage('Run Flask App'){
-       steps{
-            sh 'docker run -d -p 5000:5000 --name myflaskapp_c myflaskapp'
-          }
-        }
-     
-  
-    stage('Testing'){
-      steps{
+    stage('test') {
+      steps {
         sh 'python test_app.py'
-      }
+      }   
     }
-    stage('Docker images down'){
-      steps{
-        sh 'docker rm -f myflaskapp_c'
-        sh 'docker rmi -f myflaskapp'
-      }
+    stage('test Stress') {
+      steps {
+        sh 'python stress_test_app.py'
+      }   
     }
   }
 }
