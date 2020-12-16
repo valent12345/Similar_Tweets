@@ -1,5 +1,5 @@
 def build_app(){
- 
+  powershell 'C:/Users/Daija/AppData/Local/Programs/Python/Python39/python.exe -m pip install -r requirements.txt'
 }
 
 def test_app(){
