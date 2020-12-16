@@ -3,7 +3,7 @@ def build_app(){
 }
 
 def test_app(){
-  powershell 'C:/Users/Daija/AppData/Local/Programs/Python/Python39/python.exe backend/test_app.py'
+  powershell 'C:/Users/Daija/AppData/Local/Programs/Python/Python39/python.exe test_app.py'
 }
 
 def down_app(){
